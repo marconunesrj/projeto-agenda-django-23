@@ -1,6 +1,6 @@
-Iniciar o projeto Django
+# Iniciar o projeto Django
 
-```
+```python
 python -m venv venv
 . venv/bin/activate
 pip install django
@@ -10,7 +10,7 @@ python manage.py startapp contact
 
 Configurar o git
 
-```
+```cmd
 git config --global user.name 'Seu nome'
 git config --global user.email 'seu_email@gmail.com'
 git config --global init.defaultBranch main
@@ -23,14 +23,14 @@ git remote add origin https://github.com/marconunesrj/projeto-agenda-django-23.g
 
 Migrando a base de dados do Django
 
-```
+```python
 python manage.py makemigrations
 python manage.py migrate
 ```
 
 Criando e modificando a senha de um super usuário Django
 
-```
+```python
 python manage.py createsuperuser
 python manage.py changepassword USERNAME
 ```

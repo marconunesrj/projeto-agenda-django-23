@@ -7,13 +7,13 @@
 
 Comando para gerar SECRET_KEY
 
-```
+```python
 python -c "import string as s;from secrets import SystemRandom as SR;print(''.join(SR().choices(s.ascii_letters + s.digits + s.punctuation, k=64)));"
 ```
 
 ## Criando sua chave SSH
 
-```
+```cmd
 ssh-keygen -C 'COMENTÁRIO'
 ```
 
@@ -21,13 +21,13 @@ ssh-keygen -C 'COMENTÁRIO'
 
 ### Conectando
 
-```
+```cmd
 ssh usuário@IP_SERVIDOR
 ```
 
 ### Comandos iniciais
 
-```
+```cmd
 sudo apt update -y
 sudo apt upgrade -y
 sudo apt autoremove -y
@@ -45,7 +45,7 @@ sudo apt install git -y
 
 ### Configurando o git
 
-```
+```cmd
 git config --global user.name 'Seu nome'
 git config --global user.email 'seu_email@gmail.com'
 git config --global init.defaultBranch main
@@ -53,13 +53,13 @@ git config --global init.defaultBranch main
 
 Criando as pastas do projeto e repositório
 
-```
+```cmd
 mkdir ~/agendarepo ~/agendaapp
 ```
 
 Configurando os repositórios
 
-```
+```cmd
 cd ~/agendarepo
 git init --bare
 cd ..
@@ -73,21 +73,21 @@ git push agendarepo main -u # erro
 
 No seu computador local
 
-```
+```cmd
 git remote add agendarepo usuario@IP_SERVIDOR:~/agendarepo
 git push agendarepo main
 ```
 
 No servidor
 
-```
+```cmd
 cd ~/agendaapp
 git pull agendarepo main
 ```
 
 ## Configurando o Postgresql
 
-```
+```cmd
 sudo -u postgres psql
 
 postgres=# create role meu_usuario with login superuser createdb createrole password 'senha_do_usuario';
@@ -103,7 +103,7 @@ sudo systemctl restart postgresql
 
 ## Criando o local_settings.py no servidor
 
-```
+```cmd
 nano ~/agendaapp/project/local_settings.py
 ```
 
@@ -111,7 +111,7 @@ Cole os dados.
 
 ## Configurando o Django no servidor
 
-```
+```cmd
 cd ~/agendaapp
 python3.11 -m venv venv
 . venv/bin/activate
@@ -130,16 +130,16 @@ python manage.py createsuperuser
 
 ## Permitir arquivos maiores no nginx
 
-```
+```cmd
 sudo nano /etc/nginx/nginx.conf
 ```
 
 Adicione em http {}:
 
-```
+```cmd
 client_max_body_size 30M;
 ```
 
-```
+```cmd
 sudo systemctl restart nginx
 ```
