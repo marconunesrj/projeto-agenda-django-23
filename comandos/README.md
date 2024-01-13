@@ -24,14 +24,14 @@ git remote add origin https://github.com/marconunesrj/projeto-agenda-django-23.g
 Migrando a base de dados do Django
 
 ```python
-python manage.py makemigrations
+python manage.py makemigrations  # Se alterar o model tem que executar este comando
 python manage.py migrate
 ```
 
 Criando e modificando a senha de um super usuário Django
 
 ```python
-python manage.py createsuperuser
+python manage.py createsuperuser  # ver arquivo .env
 python manage.py changepassword USERNAME
 ```
 

@@ -32,9 +32,16 @@ sudo apt update -y
 sudo apt upgrade -y
 sudo apt autoremove -y
 sudo apt install build-essential -y
+```
 
+## Para instalar o repositório e o python precisa instalar uma VPN
+
+## Eu instalei a Proton VPN gratuita
+
+```cmd
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt install python3.11 python3.11-venv -y
+
 
 sudo apt install nginx -y
 sudo apt install certbot python3-certbot-nginx -y
@@ -87,14 +94,16 @@ git pull agendarepo main
 
 ## Configurando o Postgresql
 
+## nome_usuario, senha_do_usuario e nome_database tem que ser iguais aos do arquivo local_settings.py
+
 ```cmd
 sudo -u postgres psql
 
-postgres=# create role meu_usuario with login superuser createdb createrole password 'senha_do_usuario';
+postgres=# create role nome_usuario with login superuser createdb createrole password 'senha_do_usuario';
 CREATE ROLE
-postgres=# create database base_de_dados with owner meu_usuario;
+postgres=# create database nome_database with owner nome_usuario;
 CREATE DATABASE
-postgres=# grant all privileges on database base_de_dados to meu_usuario;
+postgres=# grant all privileges on database nome_database to nome_usuario;
 GRANT
 postgres=# \q
 

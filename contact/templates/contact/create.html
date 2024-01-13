@@ -5,11 +5,14 @@
 
     <h2>Contact</h2>
     
+    {% comment "form_action é uma variável definida nas funções create e update do arquivo contac_forms.py" %}{% endcomment %}
     <form 
       action="{{ form_action }}"
       method="POST"
       enctype="multipart/form-data"
     >
+
+      <!-- Todo Form POST precisa de um csrf_token -->
       {% csrf_token %}      
       
       <div class="form-content">

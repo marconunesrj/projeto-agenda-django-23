@@ -21,9 +21,13 @@
 
     {% if user == contact.owner %}
       <div class="contact-links">
+        {% comment "contact.id é o parâmetro passado para a view - contact:update" %}{% endcomment %}
         <a class="btn btn-link" href="{% url 'contact:update' contact.id %}">Update</a>
 
+        {% comment "contact.id é o parâmetro passado para a view - contact:delete" %}{% endcomment %}
         <form action="{% url 'contact:delete' contact.id %}" method="POST">
+
+          <!-- Todo Form POST precisa de um csrf_token -->
           {% csrf_token %}
 
           {% if confirmation == 'no' %}
